@@ -1,14 +1,18 @@
 package org.netbeans.modules.ppcnf.main;
 
+import java.awt.event.ActionEvent;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.prefs.PreferenceChangeEvent;
 import java.util.prefs.PreferenceChangeListener;
 import java.util.prefs.Preferences;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.event.ChangeListener;
 import org.netbeans.api.project.Project;
 import org.netbeans.api.project.ProjectUtils;
+import org.netbeans.spi.project.ui.CustomizerProvider2;
 import org.netbeans.spi.project.ui.support.NodeFactory;
 import org.netbeans.spi.project.ui.support.NodeList;
 import org.openide.nodes.AbstractNode;
@@ -46,7 +50,17 @@ public class PeterNodeFactory implements NodeFactory {
         }
         @Override
         public Node node(final Project project) {
-            AbstractNode node = new AbstractNode(Children.LEAF);
+            AbstractNode node = new AbstractNode(Children.LEAF) {
+                @Override
+                public Action getPreferredAction() {
+                    return new AbstractAction() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            project.getLookup().lookup(CustomizerProvider2.class).showCustomizer("special", "");
+                        }
+                    };
+                }
+            };
             node.setDisplayName("Special");
             return node;
         }
