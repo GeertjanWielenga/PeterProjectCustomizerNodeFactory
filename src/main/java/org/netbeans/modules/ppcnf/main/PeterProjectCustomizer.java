@@ -17,7 +17,7 @@ public class PeterProjectCustomizer implements ProjectCustomizer.CompositeCatego
     @ProjectCustomizer.CompositeCategoryProvider.Registrations({
         @ProjectCustomizer.CompositeCategoryProvider.Registration(
                 projectType = "org-netbeans-modules-java-j2seproject", // J2SE project type
-                position = 10
+                position = 1000
         )
     })
     public static PeterProjectCustomizer createCustomizer() {
