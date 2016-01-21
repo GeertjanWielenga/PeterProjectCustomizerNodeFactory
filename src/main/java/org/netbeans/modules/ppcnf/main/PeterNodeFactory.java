@@ -39,7 +39,6 @@ public class PeterNodeFactory implements NodeFactory {
         }
         @Override
         public List<Project> keys() {
-            fireChange();
             if ("true".equals(prefs.get("showMyNode", null))) {
                 this.keys = Arrays.asList(project);
             } else {
