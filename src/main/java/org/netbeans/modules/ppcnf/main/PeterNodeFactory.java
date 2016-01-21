@@ -19,8 +19,6 @@ import org.openide.util.ChangeSupport;
 @NodeFactory.Registration(projectType = "org-netbeans-modules-java-j2seproject")
 public class PeterNodeFactory implements NodeFactory {
 
-    private AbstractNode node;
-
     @Override
     public NodeList createNodes(final Project project) {
         return new PeterNodeList(project);
