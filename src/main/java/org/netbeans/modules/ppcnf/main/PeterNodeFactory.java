@@ -20,7 +20,7 @@ import org.openide.util.ChangeSupport;
 public class PeterNodeFactory implements NodeFactory {
 
     @Override
-    public NodeList createNodes(final Project project) {
+    public NodeList createNodes(Project project) {
         return new PeterNodeList(project);
     }
 
