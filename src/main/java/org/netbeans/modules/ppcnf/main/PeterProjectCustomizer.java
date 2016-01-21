@@ -35,16 +35,16 @@ public class PeterProjectCustomizer implements ProjectCustomizer.CompositeCatego
         final Preferences prefs = ProjectUtils.getPreferences(project, PeterProjectCustomizer.class, true);
         JPanel panel = new JPanel();
         final JCheckBox compileOnSave = new JCheckBox((String) null,
-                "true".equals(prefs.get("showMyNode", null)));
-        Mnemonics.setLocalizedText(compileOnSave, "&Show my node");
+                "true".equals(prefs.get("configureMyNode", null)));
+        Mnemonics.setLocalizedText(compileOnSave, "&Configure my node");
         panel.add(compileOnSave);
         category.setStoreListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (compileOnSave.isSelected()) {
-                    prefs.put("showMyNode", "true");
+                    prefs.put("configureMyNode", "true");
                 } else {
-                    prefs.remove("showMyNode");
+                    prefs.remove("configureMyNode");
                 }
             }
         });
